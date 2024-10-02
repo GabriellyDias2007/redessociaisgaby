@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatísticas de Redes Sociais</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#facebook">Facebook</a></li>
+                <li><a href="#instagram">Instagram</a></li>
+                <li><a href="#twitter">Twitter</a></li>
+            </ul>
+        </nav>
+        <h1>Estatísticas de Redes Sociais</h1>
+    </header>
+
+    <main>
+        <section id="facebook">
+            <h2>Facebook</h2>
+            <h3>O Facebook , lançado em 2004, é uma das redes sociais mais usadas no mundo, com cerca de 2,9 bilhões de usuários. Ele permite a criação de perfis pessoais, grupos e páginas para empresas, além de facilitar a comunicação entre amigos e familiares. Apesar de ser uma plataforma de marketing poderosa, enfrenta desafios relacionados à privacidade e à desinformação.</h3>
+            <canvas id="facebookChart" width="400" height="200"></canvas>
+        </section>
+
+        <section id="instagram">
+            <h2>Instagram</h2>
+            <h3>O Instagram , criado em 2010 e comprado pelo Facebook em 2012, é focado no compartilhamento de fotos e vídeos. Com funcionalidades como Stories, Reels e integração de compras, atrai cerca de 1,5 bilhão de usuários, sendo popular entre jovens e marcas. Apesar do sucesso, gera debates sobre o impacto da pressão estética nas redes sociais.</h3>
+            <canvas id="instagramChart" width="400" height="200"></canvas>
+        </section>
+
+        <section id="twitter">
+            <h2>Twitter</h2>
+            <h3>O Twitter , fundado em 2006, é conhecido pela rapidez na comunicação e pela força dos tweets curtos. Com cerca de 450 milhões de usuários, é uma plataforma vital para notícias e divulgação em tempo real, embora enfrente desafios com moderação de conteúdo e desinformação.</h3>
+            <canvas id="twitterChart" width="400" height="200"></canvas>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Créditos: Gabrielly</p>
+    </footer>
+
+    <script>
+        // Gráfico do Facebook (Barra)
+        const facebookCtx = document.getElementById('facebookChart').getContext('2d');
+        new Chart(facebookCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+                datasets: [{
+                    label: 'Usuários Ativos (milhões)',
+                    data: [2500, 2600, 2700, 2750, 2800],
+                    backgroundColor: 'rgba(59, 89, 152, 0.6)',
+                    borderColor: 'rgba(59, 89, 152, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Gráfico do Instagram (Linha)
+        const instagramCtx = document.getElementById('instagramChart').getContext('2d');
+        new Chart(instagramCtx, {
+            type: 'line',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+                datasets: [{
+                    label: 'Usuários Ativos (milhões)',
+                    data: [1200, 1250, 1300, 1350, 1400],
+                    backgroundColor: 'rgba(225, 48, 108, 0.6)',
+                    borderColor: 'rgba(225, 48, 108, 1)',
+                    fill: true,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Gráfico do Twitter (Pizza)
+        const twitterCtx = document.getElementById('twitterChart').getContext('2d');
+        new Chart(twitterCtx, {
+            type: 'pie',
+            data: {
+                labels: ['América do Norte', 'Europa', 'Ásia', 'América Latina'],
+                datasets: [{
+                    label: 'Distribuição de Usuários (%)',
+                    data: [40, 30, 20, 10],
+                    backgroundColor: [
+                        'rgba(29, 161, 242, 0.6)',
+                        'rgba(255, 159, 64, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(29, 161, 242, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+</body>
+</html>
